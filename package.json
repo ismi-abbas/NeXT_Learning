@@ -1,0 +1,26 @@
+{
+	"name": "next_learning",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ismi-abbas/NeXT_Learning.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ismi-abbas/NeXT_Learning/issues"
+	},
+	"homepage": "https://github.com/ismi-abbas/NeXT_Learning#readme",
+	"dependencies": {
+		"express": "^4.17.2",
+		"fast-safe-stringify": "^2.1.1",
+		"joi": "^17.6.0",
+		"moment": "^2.29.1",
+		"winston": "^3.4.0"
+	}
+}
