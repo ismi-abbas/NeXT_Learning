@@ -4,18 +4,18 @@ const { createLogger, format, transports } = require('winston');
 const { combine, timestamp, printf, colorize } = format;
 
 const myFormat = printf(({ level, message, timestamp }) => {
-	return `${timestamp} [${level}] ${message}`;
+	return `[${level}] ${timestamp} ${message}`;
 });
 
-const testLogger = () => {
+const productionLogger = () => {
 	return createLogger({
-		level: 'debug',
-		format: combine(colorize(), timestamp(), myFormat),
+		level: 'info',
+		format: combine(timestamp(), myFormat),
 		transports: [
 			new transports.Console(),
-			new transports.File({ filename: 'combined.log' }),
+			new transports.File({ filename: 'myErrors.log' }),
 		],
 	});
 };
 
-module.exports = testLogger;
+module.exports = productionLogger;
