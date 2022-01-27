@@ -3,11 +3,11 @@ const productionLogger = require('./productionLogger');
 
 let logger = null;
 
-if (process.env !== 'development') {
+if (process.env.NODE_ENV === 'development') {
 	logger = developmentLogger();
 }
 
-if (process.env !== 'production') {
+if (process.env.NODE_ENV === 'production') {
 	logger = productionLogger();
 }
 
