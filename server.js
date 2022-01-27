@@ -15,7 +15,7 @@ app.get('/Hello', (req, res) => {
 
 app.post('/', (req, res) => {
 	res.send('You can post to this endpoint');
-	logger.info();
+	logger.info('Creating log after api being hit');
 });
 
 const port = 3001;
