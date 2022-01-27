@@ -23,3 +23,12 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
 	logger.info(`Listening on port ${PORT}`);
 });
+
+const Probe = require('pmx').probe();
+
+Probe.metric({
+	name: 'NODE_ENV',
+	value: function () {
+		return process.env.NODE_ENV;
+	},
+});
