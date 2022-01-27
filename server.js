@@ -5,25 +5,21 @@ const app = express();
 
 app.get('/', (req, res) => {
 	res.send('This is the sample response');
-	logger.info('Creating log after api being hit');
+	logger.info('Main page api hitted!');
 });
 
 app.get('/Hello', (req, res) => {
 	res.send('This is the get request. Hello World!');
-	logger.info('Creating log after api being hit');
+	logger.info('Hello world api hitted!');
 });
 
 app.post('/', (req, res) => {
 	res.send('You can post to this endpoint');
-	logger.info('Creating log after api being hit');
+	logger.info('Post api hitted!');
 });
 
-const port = 3001;
+const PORT = process.env.PORT || 3000;
 
-app.listen(port, () => {
-	console.log(`Example app listening on port ${port}`);
+app.listen(PORT, () => {
+	logger.info(`Listening on port ${PORT}`);
 });
-
-logger.warn('warning information');
-logger.error('error information');
-logger.info('info information');

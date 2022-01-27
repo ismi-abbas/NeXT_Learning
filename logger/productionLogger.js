@@ -1,5 +1,3 @@
-// const winston = require('winston');
-// Destructuring methods
 const { createLogger, format, transports } = require('winston');
 const { combine, timestamp, printf, colorize } = format;
 
@@ -13,7 +11,7 @@ const productionLogger = () => {
 		format: combine(timestamp(), myFormat),
 		transports: [
 			new transports.Console(),
-			new transports.File({ filename: 'myErrors.log' }),
+			new transports.File({ filename: './logger/productionLog.log' }),
 		],
 	});
 };

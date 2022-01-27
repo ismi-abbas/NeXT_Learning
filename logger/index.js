@@ -1,11 +1,13 @@
-const testLogger = require('./testLogger');
+const developmentLogger = require('./developmentLogger');
 const productionLogger = require('./productionLogger');
 
 let logger = null;
 
-if (process.env.NODE_ENV !== 'test') {
-	logger = testLogger();
-} else if (process.env.NODE_ENV !== 'production') {
+if (process.env !== 'development') {
+	logger = developmentLogger();
+}
+
+if (process.env !== 'production') {
 	logger = productionLogger();
 }
 
