@@ -1,8 +1,8 @@
 const { createLogger, format, transports } = require('winston');
-const { combine, timestamp, printf, prettyPrint } = format;
+const { combine, timestamp, printf } = format;
 
 const myFormat = printf(({ level, message, timestamp }) => {
-	return `${timestamp} [${level}] ${message}`;
+	return `[${level}] ${timestamp}  ${message}`;
 });
 
 const developmentLogger = () => {
@@ -14,6 +14,7 @@ const developmentLogger = () => {
 			new transports.File({ filename: './logger/devLog.log' }),
 		],
 		exceptionHandlers: [
+			new transports.Console(),
 			new transports.File({ filename: './logger/exceptions.log' }),
 		],
 	});
