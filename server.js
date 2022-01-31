@@ -1,6 +1,5 @@
 const express = require('express');
 const mysql = require('mysql');
-const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
 const logger = require('./logger');
@@ -60,8 +59,7 @@ db.connect((err) => {
 // Routes
 app.use('/login', require('./routes/api/login'));
 app.use('/randomUser', require('./routes/api/getRandomJson'));
-app.use('/addPost', require('./routes/api/addPost'));
-app.use('/getPosts', require('./routes/api/getPosts'));
+app.use('/', require('./routes/api/posts'));
 
 // Html path
 app.get('/', (req, res) => {
