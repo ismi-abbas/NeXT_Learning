@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const logger = require('../../logger/index');
+const _ = require('lodash');
 const axios = require('axios');
 
 router.get('/', (req, res) => {
@@ -9,7 +10,7 @@ router.get('/', (req, res) => {
 		.get('https://randomuser.me/api/')
 		.then((response) => {
 			res.status(200);
-			res.json(response.data);
+			res.send(response.data);
 		})
 		.catch((error) => {
 			logger.error(error);

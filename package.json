@@ -21,10 +21,12 @@
 	"dependencies": {
 		"axios": "^0.25.0",
 		"express": "^4.17.2",
+		"express-handlebars": "^6.0.2",
 		"express-session": "^1.17.2",
 		"fast-safe-stringify": "^2.1.1",
 		"joi": "^17.6.0",
 		"jsonwebtoken": "^8.5.1",
+		"lodash": "^4.17.21",
 		"moment": "^2.29.1",
 		"mysql": "^2.18.1",
 		"path": "^0.12.7",
