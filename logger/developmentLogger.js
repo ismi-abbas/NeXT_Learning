@@ -19,7 +19,7 @@ const developmentLogger = () => {
 		],
 		exceptionHandlers: [
 			new transports.Console(),
-			new transports.File({ filename: './logger/exceptions.log' }),
+			new transports.File({ filename: '/exceptions.log' }),
 		],
 	});
 };
