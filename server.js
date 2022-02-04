@@ -4,17 +4,38 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const logger = require('./logger');
 const { engine } = require('express-handlebars');
+const nodemailer = require('nodemailer');
 
 const app = express();
 app.use(express.json({ extended: false }));
 
+// Body Parser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Routes
+app.use('/login', require('./routes/api/login'));
+app.use('/randomUser', require('./routes/api/getRandomJson'));
+app.use('/posts', require('./routes/api/posts'));
+app.use('/contact', require('./routes/api/contact'));
+
+// Handlebars - View Engine
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
-app.get('/home', (req, res) => {
+// Render Home Page
+app.get('/', (req, res) => {
 	res.render('home');
 });
+
+// Render contact page
+app.get('/contact', (req, res) => {
+	res.render('contact');
+});
+
+// Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Create DB
 app.get('/createdb', (req, res) => {
@@ -55,11 +76,6 @@ db.connect((err) => {
 	}
 	logger.info('Connected to database');
 });
-
-// Routes
-app.use('/login', require('./routes/api/login'));
-app.use('/randomUser', require('./routes/api/getRandomJson'));
-app.use('/', require('./routes/api/posts'));
 
 // Html path
 app.get('/', (req, res) => {
