@@ -2,7 +2,7 @@
 	<p>
 		This is the home page.
 	</p>
-	<div class='col-sm-6 text-center'>
+	<div class='m-2'>
 		<a href='/randomUser' type='button' class='btn btn-primary'>
 			Get random user👤
 		</a>
@@ -15,4 +15,10 @@
 			Contact page✉️✉️
 		</a>
 	</div>
+	<form action='/upload/single' method='post' enctype='multipart/form-data'>
+		<input type='file' name='file' class='m-2' />
+		<button>
+			Submit
+		</button>
+	</form>
 </div>

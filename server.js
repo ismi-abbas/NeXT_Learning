@@ -18,6 +18,7 @@ app.use('/login', require('./routes/api/login'));
 app.use('/randomUser', require('./routes/api/getRandomJson'));
 app.use('/posts', require('./routes/api/posts'));
 app.use('/contact', require('./routes/api/contact'));
+app.use('/upload', require('./routes/api/upload'));
 
 // Handlebars - View Engine
 app.engine('handlebars', engine());

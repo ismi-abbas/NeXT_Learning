@@ -3,20 +3,14 @@ const router = express.Router();
 const _ = require('lodash');
 const mysql = require('mysql');
 const logger = require('../../logger');
-
-// Create DB connection
-const db = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: 'root',
-	database: 'next_learning',
-});
+const auth = require('../../middleware/auth');
+const db = require('../../db');
 
 // @route GET api/getPosts
 // @desc Get all posts
 // @access Public
 
-router.get('/getposts', (req, res) => {
+router.get('/getposts', auth, (req, res) => {
 	let sql = `SELECT * FROM posts`;
 	let query = db.query(sql, (err, results) => {
 		if (err) throw err;
